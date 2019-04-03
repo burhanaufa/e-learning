@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('content')
 <h1>Daftar Guru</h1>
@@ -27,7 +27,7 @@
             </td>
         </tr>
         @endforeach
-        <a href="{{ route('guru.create',$guru->id)}}"class="btn btn-primary">Add Teacher</a>
+        <a href="{{ route('guru.create')}}"class="btn btn-primary">Add Teacher</a>
     </tbody>
 </table>
 @endsection

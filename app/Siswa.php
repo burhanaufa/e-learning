@@ -1,18 +1,67 @@
 <?php
 
+ 
+
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+ 
 
-class Siswa extends Model
+use Illuminate\Notifications\Notifiable;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+ 
+
+class Siswa extends Authenticatable
+
 {
-    protected $table='siswas';
-    protected $fillable= [
-        'nama_siswa','nis','pass'
+
+    use Notifiable;
+
+ 
+
+    /**
+
+     * The attributes that are mass assignable.
+
+     *
+
+     * @var array
+
+     */
+
+    protected $fillable = [
+
+        'nama_siswa', 'nis', 'password',
+
     ];
 
-    public function mapel()
-    {
-        return $this->hasMany('App\Mapel');
-    }
+ 
+
+    /**
+
+     * The attributes that should be hidden for arrays.
+
+     *
+
+     * @var array
+
+     */
+
+    protected $hidden = [
+
+        'password', 'remember_token',
+
+    ];
+ 
+     public function mapel()
+     {
+         return $this->belongsToMany('App\Mapel');
+     }
+
+    // public function guru()
+    // {
+    //     return $this->belongsTo('App\Guru','foreign_key');
+    // }
+
 }

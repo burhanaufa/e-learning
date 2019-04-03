@@ -12,8 +12,8 @@
                 {{Form::text('nip','', ['class' => 'form-control', 'placeholder'=>'Nip'])}}
         </div>
         <div class="form-group">
-            {{Form::label('pass', 'Password')}}
-            {{Form::text('pass','', ['class' => 'form-control', 'placeholder'=>'Password'])}}
+            {{Form::label('password', 'Password')}}
+            {{Form::text('password','', ['class' => 'form-control', 'placeholder'=>'Password'])}}
     </div>
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

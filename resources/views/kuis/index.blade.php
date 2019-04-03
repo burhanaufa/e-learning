@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('content')
+<h1>Daftar Kuis</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -24,7 +25,7 @@
             </td>
         </tr>
         @endforeach
-        <a href="{{ route('kuis.create',$kuis->id)}}"class="btn btn-primary">Add Quiz</a>
+        <a href="{{ route('kuis.create')}}"class="btn btn-primary">Add Quiz</a>
     </tbody>
 </table>
 @endsection

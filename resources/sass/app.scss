@@ -8,8 +8,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Template Admin
-@import '_sidebar';
+@import '~admin-lte/dist/css/adminlte.css';
+@import '~font-awesome/css/font-awesome.min.css';
 
 .navbar-laravel {
   background-color: #fff;

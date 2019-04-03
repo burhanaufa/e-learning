@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('content')
+<h1>Daftar Materi</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -16,8 +17,8 @@
             <td>{{$materi->id}}</td>
             <td>{{$materi->nama_materi}}</td>
             <td>{{$materi->konten_materi}}</td>
-            <td><a href="{{ route('materi.edit',$materi->id)}}"
-    class="btn btn-primary">Edit</a></td>
+            <td><a href="{{ route('materi.show',$materi->id)}}"class="btn btn-primary">Show</a></td>
+            <td><a href="{{ route('materi.edit',$materi->id)}}"class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('materi.destroy',$materi->id)}}" method="post">
                     @csrf
@@ -27,7 +28,7 @@
             </td>
         </tr>
         @endforeach
-        <a href="{{ route('materi.create',$materi->id)}}"class="btn btn-primary">Add Subject</a>
+        <a href="{{ route('materi.create')}}"class="btn btn-primary">Add Subject</a>
     </tbody>
 </table>
 @endsection

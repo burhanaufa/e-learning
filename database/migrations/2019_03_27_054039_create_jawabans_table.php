@@ -17,6 +17,7 @@ class CreateJawabansTable extends Migration
             $table->bigIncrements('id');
             $table->mediumText('isi_jawaban');
             $table->timestamps();
+            $table->foreign('pertayaans_id')->references('id')->on('pertanyaans');
         });
     }
 

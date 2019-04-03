@@ -18,11 +18,11 @@ class CreateKuisTable extends Migration
             $table->string('nama_kuis');
             $table->timestamps();
         });
-        Schema::table('kuis', function (Blueprint $table) {
-            $table->unsignedBigInteger('materi_id');
+        //Schema::table('kuis', function (Blueprint $table) {
+            //$table->unsignedBigInteger('materi_id');
 
-            $table->foreign('materi_id')->references('id')->on('materi');
-        });
+            //$table->foreign('materi_id')->references('id')->on('materi');
+        //});
 
     }
 

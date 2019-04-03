@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('content')
     <h1>Tambah Siswa</h1>
@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="text" class="form-control" name="pass"/>
+                <input type="text" class="form-control" name="password"/>
             </div>
             <button type="submit" class="btn btn-primary">Add </button>
         </form>

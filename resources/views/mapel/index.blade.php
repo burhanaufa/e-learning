@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('content')
+<h1>Daftar MataPelajaran</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -24,7 +25,7 @@
             </td>
         </tr>
         @endforeach
-        <a href="{{ route('mapel.create',$mapel->id)}}"class="btn btn-primary">Add Subject</a>
+        <a href="{{ route('mapel.create')}}"class="btn btn-primary">Add Subject</a>
     </tbody>
 </table>
 @endsection

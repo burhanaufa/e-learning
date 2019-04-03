@@ -15,7 +15,7 @@ class Kuis extends Model
     }
     public function pertanyaan()
     {
-        return $this->hasMany('App\Pertanyaan');
+        return $this->hasMany('App\Pertanyaan','foreign_key');
     }
     
 }

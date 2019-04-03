@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2019 pada 03.12
+-- Waktu pembuatan: 29 Mar 2019 pada 07.13
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -42,8 +42,30 @@ CREATE TABLE `gurus` (
 --
 
 INSERT INTO `gurus` (`id`, `nama_guru`, `nip`, `pass`, `created_at`, `updated_at`) VALUES
-(1, 'Sugiharto', 20001, 'pass', '2019-03-26 10:25:29', '2019-03-26 10:25:29'),
-(2, 'Sutarno', 10001, 'blabla', '2019-03-26 10:26:17', '2019-03-26 10:26:17');
+(1, 'Sugihar', 20001, 'pass', '2019-03-26 10:25:29', '2019-03-26 21:27:29'),
+(2, 'Sutarno', 10001, 'blabla', '2019-03-26 10:26:17', '2019-03-26 10:26:17'),
+(3, 'Sutiyem', 400004, 'baby hui', '2019-03-26 21:23:29', '2019-03-26 21:23:29'),
+(4, 'Supratman', 20002, 'baby hui', '2019-03-26 21:24:22', '2019-03-26 21:24:22');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jawabans`
+--
+
+CREATE TABLE `jawabans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `isi_jawaban` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `jawabans`
+--
+
+INSERT INTO `jawabans` (`id`, `isi_jawaban`, `created_at`, `updated_at`) VALUES
+(1, 'Konten ini berisi isi jawaban', '2019-03-27 00:14:26', '2019-03-27 00:14:26');
 
 -- --------------------------------------------------------
 
@@ -135,7 +157,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2019_03_22_181003_create_mapels_table', 1),
 (22, '2019_03_22_182338_create_kuis_table', 1),
 (23, '2019_03_23_072657_create_gurus_table', 1),
-(24, '2019_03_24_122745_create_materis_table', 1);
+(24, '2019_03_24_122745_create_materis_table', 1),
+(25, '2019_03_27_053926_create_pertanyaans_table', 2),
+(26, '2019_03_27_054039_create_jawabans_table', 2);
 
 -- --------------------------------------------------------
 
@@ -148,6 +172,26 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pertanyaans`
+--
+
+CREATE TABLE `pertanyaans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `isi_pertanyaan` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `pertanyaans`
+--
+
+INSERT INTO `pertanyaans` (`id`, `isi_pertanyaan`, `created_at`, `updated_at`) VALUES
+(1, 'Konten ini berisi isi pertanyaan', '2019-03-27 00:02:14', '2019-03-27 00:02:14');
 
 -- --------------------------------------------------------
 
@@ -186,7 +230,8 @@ CREATE TABLE `siswas` (
 
 INSERT INTO `siswas` (`id`, `nama_siswa`, `nis`, `pass`, `created_at`, `updated_at`) VALUES
 (1, 'Burhan', 13523217, 'password', '2019-03-26 10:18:23', '2019-03-26 10:18:23'),
-(2, 'Agus', 13523267, 'asukabeh', '2019-03-26 10:18:46', '2019-03-26 10:18:46');
+(2, 'Agus', 13523267, 'asukabeh', '2019-03-26 10:18:46', '2019-03-26 10:18:46'),
+(3, 'Danca anak tokped', 13253216, 'baby hui', '2019-03-26 20:43:22', '2019-03-26 20:43:22');
 
 -- --------------------------------------------------------
 
@@ -213,6 +258,12 @@ CREATE TABLE `users` (
 -- Indeks untuk tabel `gurus`
 --
 ALTER TABLE `gurus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `jawabans`
+--
+ALTER TABLE `jawabans`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -246,6 +297,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indeks untuk tabel `pertanyaans`
+--
+ALTER TABLE `pertanyaans`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `signatures`
 --
 ALTER TABLE `signatures`
@@ -272,7 +329,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `gurus`
 --
 ALTER TABLE `gurus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `jawabans`
+--
+ALTER TABLE `jawabans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `kuis`
@@ -296,7 +359,13 @@ ALTER TABLE `materis`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT untuk tabel `pertanyaans`
+--
+ALTER TABLE `pertanyaans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `signatures`
@@ -308,7 +377,7 @@ ALTER TABLE `signatures`
 -- AUTO_INCREMENT untuk tabel `siswas`
 --
 ALTER TABLE `siswas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

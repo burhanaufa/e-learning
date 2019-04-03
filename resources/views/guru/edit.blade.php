@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('content')
     <h1>Edit Guru</h1>
@@ -12,8 +12,8 @@
                 {{Form::text('nip',$guru->nip, ['class' => 'form-control', 'placeholder'=>'Nip'])}}
         </div>
         <div class="form-group">
-            {{Form::label('pass', 'Password')}}
-            {{Form::text('pass',$guru->pass, ['class' => 'form-control', 'placeholder'=>'Password'])}}
+            {{Form::label('password', 'Password')}}
+            {{Form::text('password',$guru->password, ['class' => 'form-control', 'placeholder'=>'Password'])}}
     </div>
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}

@@ -17,6 +17,7 @@ class CreatePertanyaansTable extends Migration
             $table->bigIncrements('id');
             $table->mediumText('isi_pertanyaan');
             $table->timestamps();
+            $table->foreign('kuis_id')->references('id')->on('kuis');
         });
     }
 

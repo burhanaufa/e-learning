@@ -7,6 +7,10 @@ use App\Guru;
 
 class GuruController extends Controller
 {
+    // public function __construct()
+    // {
+        // $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -39,13 +43,13 @@ class GuruController extends Controller
         $this->validate($request,[
             'nama_guru' => 'required',
             'nip' => 'required|integer',
-            'pass' => 'required'
+            'password' => 'required'
         ]);
 
         $guru = new Guru([
             'nama_guru' => $request->get('nama_guru'),
             'nip' => $request->get('nip'),
-            'pass' => $request->get('pass')
+            'password' => $request->get('password')
         ]);
         $guru->save();
 
@@ -88,12 +92,12 @@ class GuruController extends Controller
         $this->validate($request,[
             'nama_guru' => 'required',
             'nip' => 'required|integer',
-            'pass' => 'required'
+            'password' => 'required'
         ]);
         $guru = Guru::find($id);
         $guru->nama_guru = $request->input('nama_guru');
         $guru->nip = $request->input('nip');
-        $guru->pass = $request->input('pass');
+        $guru->password = $request->input('password');
         $guru->save();
 
         return redirect('/guru')->with('success', 'New  Added');

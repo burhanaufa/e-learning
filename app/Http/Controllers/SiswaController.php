@@ -7,6 +7,10 @@ use App\Siswa;
 
 class SiswaController extends Controller
 {
+    // public function __construct()
+    // {
+        // $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -39,13 +43,13 @@ class SiswaController extends Controller
         $this->validate($request,[
             'nama_siswa' => 'required',
             'nis' => 'required|integer',
-            'pass' => 'required'
+            'password' => 'required'
         ]);
 
         $siswa = new Siswa([
             'nama_siswa' => $request->get('nama_siswa'),
             'nis' => $request->get('nis'),
-            'pass' => $request->get('pass')
+            'password' => $request->get('password')
         ]);
         $siswa->save();
         return redirect('/siswa')->with('success', 'New Student Added');
@@ -87,13 +91,13 @@ class SiswaController extends Controller
         $this->validate($request,[
             'nama_siswa'=>'required',
             'nis'=> 'required|integer',
-            'pass' => 'required'
+            'password' => 'required'
           ]);
 
           $siswa = Siswa::find($id);
           $siswa->nama_siswa = $request->get('nama_siswa');
           $siswa->nis = $request->get('nis');
-          $siswa->pass = $request->get('pass');
+          $siswa->password = $request->get('password');
           $siswa->save();
 
         return redirect('siswa')->with('success', 'New Student Added');

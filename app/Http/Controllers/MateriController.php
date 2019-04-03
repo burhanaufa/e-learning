@@ -7,6 +7,10 @@ use App\Materi;
 
 class MateriController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -59,8 +63,8 @@ class MateriController extends Controller
      */
     public function show($id)
     {
-        //$siswa = siswa::find($id);
-        //return view ('siswa.show')->with ('siswa',$siswa);
+        $materi = Materi::find($id);
+        return view ('materi.show')->with ('materi',$materi);
     }
 
     /**

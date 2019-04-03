@@ -11,14 +11,14 @@ class Mapel extends Model
     ];
     public function materi()
     {
-        return $this->hasMany('App\Materi');
+        return $this->hasMany('App\Materi','foreign_key');
     }
     public function guru()
     {
-        return $this->belongsTo('App\Guru');
+        return $this->belongsTo('App\Guru','foreign_key');
     }
     public function siswa()
     {
-        return $this->belongsTo('App\Siswa');
+        return $this->belongsToMany('App\Siswa');
     }
 }

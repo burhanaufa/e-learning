@@ -24,6 +24,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "admin-lte": "^3.0.0-alpha.2",
+        "font-awesome": "^4.7.0",
         "gulp": "^4.0.0",
         "vuejs-paginate": "^2.1.0"
     }

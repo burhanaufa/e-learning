@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.index')
 
 @section('content')
 <h1>Daftar Siswa</h1>
@@ -27,7 +27,7 @@
             </td>
         </tr>
         @endforeach
-        <a href="{{ route('siswa.create',$siswa->id)}}"class="btn btn-primary">Add Student</a>
+        <a href="{{ route('siswa.create')}}"class="btn btn-primary">Add Student</a>
     </tbody>
 </table>
 @endsection
