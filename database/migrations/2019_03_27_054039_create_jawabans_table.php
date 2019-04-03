@@ -15,9 +15,10 @@ class CreateJawabansTable extends Migration
     {
         Schema::create('jawabans', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('pertanyaans_id');
             $table->mediumText('isi_jawaban');
             $table->timestamps();
-            $table->foreign('pertayaans_id')->references('id')->on('pertanyaans');
+            $table->foreign('pertanyaans_id')->references('id')->on('pertanyaans');
         });
     }
 

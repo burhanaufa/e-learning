@@ -16,6 +16,7 @@ class CreateMaterisTable extends Migration
         Schema::create('materis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_materi');
+            $table->unsignedBigInteger('mapels_id');
             $table->mediumText('konten_materi');
             $table->timestamps();
             $table->foreign('mapels_id')->references('id')->on('mapels');

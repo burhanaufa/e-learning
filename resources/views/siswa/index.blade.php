@@ -1,7 +1,8 @@
 @extends('admin.index')
 
 @section('content')
-<h1>Daftar Siswa</h1>
+<div class="container">
+    <h1>Daftar Siswa</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -30,4 +31,5 @@
         <a href="{{ route('siswa.create')}}"class="btn btn-primary">Add Student</a>
     </tbody>
 </table>
+</div>
 @endsection
