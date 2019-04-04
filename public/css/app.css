@@ -13043,6 +13043,10 @@ a.text-muted:hover {
   flex: 1;
 }
 
+.mh-100vh {
+  min-height: 100vh;
+}
+
 /*
  * Misc: print
  * -----------
