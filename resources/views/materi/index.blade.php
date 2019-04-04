@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('content')
+<div class="container">
 <h1>Daftar Materi</h1>
 <table class="table table-striped">
     <thead>
@@ -31,4 +32,5 @@
         <a href="{{ route('materi.create')}}"class="btn btn-primary">Add Subject</a>
     </tbody>
 </table>
+</div>
 @endsection

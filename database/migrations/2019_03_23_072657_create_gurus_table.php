@@ -16,16 +16,16 @@ class CreateGurusTable extends Migration
         Schema::create('Gurus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_guru');
-            $table->unsignedBigInteger('mapels_id');
+            $table->unsignedBigInteger('mapels_id')->nullable();
             $table->integer('nip')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            
+
 
             $table->foreign('mapels_id')->references('id')->on('mapels')->onDelete('cascade');
 
-            
+
         });
     }
 

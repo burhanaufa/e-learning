@@ -100,7 +100,7 @@ class SiswaController extends Controller
           $siswa->password = $request->get('password');
           $siswa->save();
 
-        return redirect('siswa')->with('success', 'New Student Added');
+        return redirect('siswa')->with('success', 'New Student Updated');
     }
 
     /**

@@ -15,7 +15,7 @@ class CreatePertanyaansTable extends Migration
     {
         Schema::create('pertanyaans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('kuis_id');
+            $table->unsignedBigInteger('kuis_id')->nullable();
             $table->mediumText('isi_pertanyaan');
             $table->timestamps();
             $table->foreign('kuis_id')->references('id')->on('kuis');

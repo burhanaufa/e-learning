@@ -7,10 +7,10 @@ use App\Materi;
 
 class MateriController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -46,8 +46,8 @@ class MateriController extends Controller
         ]);
 
         $materi = new Materi([
-        $materi->nama_materi = $request->input('nama_materi'),
-        $materi->konten_materi = $request->input('konten_materi'),
+            'nama_materi'=> $request->get('nama_materi'),
+            'konten_materi'=> $request->get('konten_materi'),
         ]);
         $materi->save();
 
@@ -94,8 +94,8 @@ class MateriController extends Controller
         ]);
 
         $materi = Materi::find($id)([
-        $materi->nama_materi = $request->input('nama_materi'),
-        $materi->konten_materi = $request->input('konten_materi'),
+        $materi->nama_materi = $request->get('nama_materi'),
+        $materi->konten_materi = $request->get('konten_materi'),
         ]);
         $materi->save();
 

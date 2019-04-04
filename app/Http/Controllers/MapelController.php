@@ -7,10 +7,10 @@ use App\Mapel;
 
 class MapelController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -44,8 +44,9 @@ class MapelController extends Controller
             'nama_mapel' => 'required'
         ]);
 
-        $mapel = new Mapel;
-        $mapel->nama_mapel = $request->input('nama_mapel');
+        $mapel = new Mapel([
+            'nama_mapel' => $request->get('nama_mapel')
+        ]);
         $mapel->save();
 
         return redirect('/mapel')->with('success', 'New Subject Added');
@@ -88,11 +89,10 @@ class MapelController extends Controller
             'nama_mapel' => 'required'
         ]);
         $mapel = Mapel::find($id);
-        $mapel = new Mapel;
-        $mapel->nama_mapel = $request->input('nama_mapel');
+        $mapel->nama_mapel = $request->get('nama_mapel');
         $mapel->save();
 
-        return redirect('/mapel')->with('success', 'New Subject Added');
+        return redirect('/mapel')->with('success', 'New Subject Updated');
     }
 
     /**

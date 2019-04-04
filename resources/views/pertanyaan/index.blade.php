@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('content')
+<div class="container">
 <h1>Daftar Pertanyaan</h1>
 <table class="table table-striped">
     <thead>
@@ -29,4 +30,5 @@
         <a href="{{ route('pertanyaan.create')}}"class="btn btn-primary">Add Question</a>
     </tbody>
 </table>
+</div>
 @endsection

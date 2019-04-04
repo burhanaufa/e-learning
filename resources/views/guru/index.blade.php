@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('content')
+<div class="container">
 <h1>Daftar Guru</h1>
 <table class="table table-striped">
     <thead>
@@ -30,4 +31,5 @@
         <a href="{{ route('guru.create')}}"class="btn btn-primary">Add Teacher</a>
     </tbody>
 </table>
+</div>
 @endsection

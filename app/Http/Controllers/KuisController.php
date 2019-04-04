@@ -7,10 +7,10 @@ use App\Kuis;
 
 class KuisController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +45,7 @@ class KuisController extends Controller
         ]);
 
         $kuis = new Kuis([
-        $kuis->nama_kuis = $request->input('nama_kuis'),
+        'nama_kuis' => $request->get('nama_kuis'),
         ]);
         $kuis->save();
 
@@ -91,7 +91,7 @@ class KuisController extends Controller
         ]);
 
         $kuis = Kuis::find($id)([
-        $kuis->nama_kuis = $request->input('nama_kuis'),
+        $kuis->nama_kuis = $request->get('nama_kuis'),
         ]);
         $kuis->save();
 

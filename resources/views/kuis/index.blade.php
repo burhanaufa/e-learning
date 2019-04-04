@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('content')
+<div class="container">
 <h1>Daftar Kuis</h1>
 <table class="table table-striped">
     <thead>
@@ -28,4 +29,5 @@
         <a href="{{ route('kuis.create')}}"class="btn btn-primary">Add Quiz</a>
     </tbody>
 </table>
+</div>
 @endsection
