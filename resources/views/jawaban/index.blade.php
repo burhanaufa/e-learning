@@ -8,6 +8,7 @@
         <tr>
             <td>ID</td>
             <td>Isi Jawaban</td>
+            <td>No Pertanyaan</td>
             <td colspan="2">Action</td>
         </tr>
     </thead>
@@ -16,6 +17,7 @@
         <tr>
             <td>{{$jawaban->id}}</td>
             <td>{{$jawaban->isi_jawaban}}</td>
+            <td>{{$jawaban->pertanyaans_id}}</td>
             <td><a href="{{ route('jawaban.show',$jawaban->id)}}"class="btn btn-primary">Show</a></td>
             <td><a href="{{ route('jawaban.edit',$jawaban->id)}}"class="btn btn-primary">Edit</a></td>
             <td>

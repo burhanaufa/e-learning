@@ -41,11 +41,13 @@ class JawabanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'isi_jawaban' => 'required'
+            'isi_jawaban' => 'required',
+            'pertanyaans_id' => 'required'
         ]);
 
         $jawaban = new Jawaban;
-        $jawaban->isi_jawaban = $request->input('isi_jawaban');
+        $jawaban->isi_jawaban = $request->get('isi_jawaban');
+        $jawaban->pertanyaans_id = $request->get('pertanyaans_id');
         $jawaban->save();
 
         return redirect('/jawaban')->with('success', 'New Answers Added');
@@ -85,14 +87,15 @@ class JawabanController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'isi_jawaban' => 'required'
+            'isi_jawaban' => 'required',
+            'pertanyaans_id' => 'required'
         ]);
         $jawaban = Jawaban::find($id);
-        $jawaban = new Jawaban;
-        $jawaban->isi_jawaban = $request->input('isi_jawaban');
+        $jawaban->isi_jawaban = $request->get('isi_jawaban');
+        $jawaban->pertanyaans_id = $request->get('pertanyaans_id');
         $jawaban->save();
 
-        return redirect('/mapel')->with('success', 'New Answers Updated');
+        return redirect('/jawaban')->with('success', 'New Answers Updated');
     }
 
     /**

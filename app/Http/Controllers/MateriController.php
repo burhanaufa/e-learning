@@ -43,11 +43,13 @@ class MateriController extends Controller
         $this->validate($request,[
             'nama_materi' => 'required',
             'konten_materi' => 'required',
+            'mapels_id' => 'required'
         ]);
 
         $materi = new Materi([
             'nama_materi'=> $request->get('nama_materi'),
             'konten_materi'=> $request->get('konten_materi'),
+            'mapels_id' => $request->get('mapels_id')
         ]);
         $materi->save();
 
@@ -91,12 +93,13 @@ class MateriController extends Controller
         $this->validate($request,[
             'nama_materi' => 'required',
             'konten_materi' => 'required',
+            'mapels_id' => 'required'
         ]);
 
-        $materi = Materi::find($id)([
-        $materi->nama_materi = $request->get('nama_materi'),
-        $materi->konten_materi = $request->get('konten_materi'),
-        ]);
+        $materi = Materi::find($id);
+        $materi->nama_materi = $request->get('nama_materi');
+        $materi->konten_materi = $request->get('konten_materi');
+        $materi->mapels_id = $request->get('mapels_id');
         $materi->save();
 
 

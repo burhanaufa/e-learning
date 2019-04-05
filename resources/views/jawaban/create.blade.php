@@ -7,6 +7,10 @@
             {{Form::label('isi_jawaban', 'Isi Jawaban')}}
             {{Form::textArea('isi_jawaban','', ['class' => 'form-control', 'placeholder'=>'Isi Jawaban'])}}
         </div>
+        <div class="form-group">
+            {{Form::label('pertanyaans_id', 'No Pertanyaan')}}
+            {{Form::text('pertanyaans_id','', ['class' => 'form-control', 'placeholder'=>'No pertanyaan'])}}
+        </div>
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
 @endsection

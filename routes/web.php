@@ -34,3 +34,6 @@ Route::post('siswa-login', ['as'=>'siswa-login','uses'=>'Auth\SiswaLoginControll
 Route::get('guru-login', 'Auth\GuruLoginController@showLoginForm');
 
 Route::post('guru-login', ['as'=>'guru-login','uses'=>'Auth\GuruLoginController@login']);
+Route::get('/dashboard', function () {
+    return view('courses.dashboard');
+});

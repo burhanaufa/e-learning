@@ -9,6 +9,7 @@
             <td>ID</td>
             <td>Nama Materi</td>
             <td>Konten Materi</td>
+            <td>Mapel</>
             <td colspan="2">Action</td>
         </tr>
     </thead>
@@ -18,6 +19,7 @@
             <td>{{$materi->id}}</td>
             <td>{{$materi->nama_materi}}</td>
             <td>{{$materi->konten_materi}}</td>
+            <td>{{$materi->mapels_id}}</td>
             <td><a href="{{ route('materi.show',$materi->id)}}"class="btn btn-primary">Show</a></td>
             <td><a href="{{ route('materi.edit',$materi->id)}}"class="btn btn-primary">Edit</a></td>
             <td>

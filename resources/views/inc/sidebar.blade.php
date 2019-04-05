@@ -77,14 +77,6 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/kuis" class="nav-link">
-                <i class="nav-icon fa fa-th"></i>
-                <p>
-                  Kuis
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="/pertanyaan" class="nav-link">
                 <i class="nav-icon fa fa-question"></i>
                 <p>

@@ -18,7 +18,7 @@ class CreatePertanyaansTable extends Migration
             $table->unsignedBigInteger('kuis_id')->nullable();
             $table->mediumText('isi_pertanyaan');
             $table->timestamps();
-            $table->foreign('kuis_id')->references('id')->on('kuis');
+            $table->foreign('materis_id')->references('id')->on('materis');
         });
     }
 
