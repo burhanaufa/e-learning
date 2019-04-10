@@ -7,6 +7,8 @@
     <div>
         {!!$materi->konten_materi!!}
     </div>
+    <div>
+        {!!$materi->mapels_id!!}
     </div>
 @endsection
 

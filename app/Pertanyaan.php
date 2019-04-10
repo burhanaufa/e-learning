@@ -13,8 +13,8 @@ class Pertanyaan extends Model
     {
         return $this->hasMany('App\Jawaban');
     }
-    public function kuis()
+    public function materi()
     {
-        return $this->belongsTo('App\Kuis');
+        return $this->belongsTo('App\Materi');
     }
 }

@@ -15,10 +15,11 @@ class Mapel extends Model
     }
     public function guru()
     {
-        return $this->belongsTo('App\Guru','foreign_key');
+        return $this->hasMany('App\Guru','foreign_key');
     }
     public function siswa()
     {
-        return $this->belongsToMany('App\Siswa');
+        return $this->belongsToMany('App\Siswa','siswa_id')
+        ->withPivot(['nama_siswa']);
     }
 }

@@ -25,21 +25,21 @@
               <a href="#" class="nav-link active">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
-                  Starter Pages
+                  Pivots Table
                   <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link active">
+                  <a href="/mapel_siswa" class="nav-link active">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Active Page</p>
+                    <p>Siswa dan Mapel</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="/guru_siswa" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Inactive Page</p>
+                    <p>Guru dan Siswa</p>
                   </a>
                 </li>
               </ul>

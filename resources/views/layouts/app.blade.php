@@ -90,7 +90,7 @@
 
   <!-- Main Sidebar Container -->
     <!-- Sidebar -->
-    <aside class="main-sidebar sidebar-blue-primary elevation-4">
+    <aside class="main-sidebar sidebar-light-primary elevation-4">
         <!-- Brand Logo -->
         <a href="/home" class="brand-link">
           <img src="/img/logosma1.jpg" alt="AdminLTE Logo" class="brand-image img elevation-2" style="opacity: .8">

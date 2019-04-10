@@ -4,27 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mapel;
+use App\Siswa;
 
-class MapelController extends Controller
+
+class Mapel_SiswaController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function dashboard()
-    {
-        $mapel = Mapel::all();
-        return view ('courses.dashboard', compact('mapel'));
-    }
     public function index()
     {
-        $mapel = Mapel::all();
-        return view('mapel.index', compact('mapel'));
+        $mapel = Mapel ::all();
+        $siswa = Siswa ::all();
+        return view('mapel_siswa.index', compact('mapel'));
+        return view('mapel_siswa.index', compact('siswa'));
     }
 
     /**
@@ -34,7 +29,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        return view('mapel.create');
+        return view('mapel_siswa.create');
     }
 
     /**
@@ -46,15 +41,19 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nama_mapel' => 'required'
+            'mapel_id' => 'required',
+            'siswa_id' => 'required'
         ]);
-
         $mapel = new Mapel([
-            'nama_mapel' => $request->get('nama_mapel')
-        ]);
+            'mapel_id'=> $request->get('mapel_id'),
+            ]);
+        $siswa = new Siswa([
+            'siswa_id'=> $request->get('siswa_id')
+            ]);
         $mapel->save();
+        $siswa->siswa();
 
-        return redirect('/mapel')->with('success', 'New Subject Added');
+        return redirect('/mapel_siswa')->with('success', 'New Lecture Added');
     }
 
     /**
@@ -65,8 +64,7 @@ class MapelController extends Controller
      */
     public function show($id)
     {
-        //$mapel = mapel::find($id);
-        //return view ('mapel.show')->with ('mapel',$mapel);
+        //
     }
 
     /**
@@ -78,7 +76,9 @@ class MapelController extends Controller
     public function edit($id)
     {
         $mapel = Mapel::find($id);
-        return view ('mapel.edit')->with('mapel',$mapel);
+        $siswa = Siswa::find($id);
+        return view ('mapel_siswa.edit')->with('mapel_id',$mapel);
+        return view ('mapel_siswa.edit')->with('siswa_id',$siswa);
     }
 
     /**
@@ -91,13 +91,17 @@ class MapelController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'nama_mapel' => 'required'
+            'mapel_id' => 'required',
+            'siswa_id' => 'required'
         ]);
         $mapel = Mapel::find($id);
-        $mapel->nama_mapel = $request->get('nama_mapel');
+        $siswa = Siswa::find($id);
+        $mapel->mapel_id = $request->get('mapel_id');
+        $siswa->siswa_id = $request->get('siswas_id');
         $mapel->save();
+        $siswa->save();
 
-        return redirect('/mapel')->with('success', 'New Subject Updated');
+        return redirect('/mapel_siswa')->with('success', 'New Pivots Updated');
     }
 
     /**
@@ -108,8 +112,10 @@ class MapelController extends Controller
      */
     public function destroy($id)
     {
-        $mapel = Mapel::find($id);
+        $mapel= Mapel::find($id);
+        $siswa= Siswa::find($id);
         $mapel->delete();
-        return redirect('/mapel')->with('success', 'Subject Removed');
+        $siswa->delete();
+        return redirect('/mapel_siswa')->with('success', 'Lecture Removed');
     }
 }

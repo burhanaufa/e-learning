@@ -41,11 +41,13 @@ class PertanyaanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'isi_pertanyaan' => 'required'
+            'isi_pertanyaan' => 'required',
+            'materis_id' => 'required'
         ]);
 
         $pertanyaan = new Pertanyaan;
         $pertanyaan->isi_pertanyaan = $request->input('isi_pertanyaan');
+        $pertanyaan->materis_id = $request->input('materis_id');
         $pertanyaan->save();
 
         return redirect('/pertanyaan')->with('success', 'New Question Added');
@@ -85,11 +87,12 @@ class PertanyaanController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'isi_pertanyaan' => 'required'
+            'isi_pertanyaan' => 'required',
+            'materis_id' => 'materis_id'
         ]);
         $pertanyaan = Pertanyaan::find($id);
-        $pertanyaan = new Pertanyaan;
         $pertanyaan ->isi_pertanyaan = $request->input('isi_pertanyaan');
+        $pertanyaan ->materis_id = $request->input('materis_id');
         $pertanyaan->save();
 
         return redirect('/pertanyaan')->with('success', 'New Question Updated');

@@ -16,6 +16,11 @@ class MateriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function fisika()
+    {
+        $materi = Materi::all();
+        return view('courses.fisika', compact('materi'));
+    }
     public function index()
     {
         $materi = Materi::all();
@@ -42,8 +47,7 @@ class MateriController extends Controller
     {
         $this->validate($request,[
             'nama_materi' => 'required',
-            'konten_materi' => 'required',
-            'mapels_id' => 'required'
+            'konten_materi' => 'required'
         ]);
 
         $materi = new Materi([
@@ -103,7 +107,7 @@ class MateriController extends Controller
         $materi->save();
 
 
-        return redirect('/materi')->with('success', 'New Lecture Added');
+        return redirect('/materi')->with('success', 'New Lecture Updated');
     }
 
     /**

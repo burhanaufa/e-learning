@@ -13,8 +13,8 @@ class Materi extends Model
     {
         return $this->belongsTo('App\Mapel');
     }
-    public function Kuis()
+    public function pertanyaan()
     {
-        return $this->hasOne('App\Kuis');
+        return $this->hasMany('App\Pertanyaan');
     }
 }

@@ -23813,6 +23813,46 @@ a.text-dark:focus {
   height: 300px;
 }
 
+.timbul2 {
+  box-shadow: 0px 2px 25px -9px green;
+  height: 100px;
+}
+
+.timbul3 {
+  box-shadow: 0px 2px 25px -9px red;
+  height: 100px;
+}
+
+.timbul4 {
+  box-shadow: 0px 2px 25px -9px blue;
+  height: 100px;
+}
+
+.timbul5 {
+  box-shadow: 0px 2px 25px -9px black;
+  height: 100px;
+}
+
+.timbul6 {
+  box-shadow: 0px 2px 25px -9px orchid;
+  height: 100px;
+}
+
+.timbul7 {
+  box-shadow: 0px 2px 25px -9px darkcyan;
+  height: 100px;
+}
+
+.timbul8 {
+  box-shadow: 0px 2px 25px -9px darkred;
+  height: 100px;
+}
+
+.timbul9 {
+  box-shadow: 0px 2px 25px -9px darkturquoise;
+  height: 100px;
+}
+
 label {
   margin-left: 10px;
 }
@@ -23828,6 +23868,24 @@ ul > li {
 
 .card-img-top {
   height: 250px;
+}
+
+.exploration-image {
+  font-size: 0;
+  text-align: center;
+}
+
+.exploration-image::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.exploration-image img {
+  display: inline-block;
+  max-height: 100%;
+  vertical-align: middle;
 }
 
 .navbar-laravel {

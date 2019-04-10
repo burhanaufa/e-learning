@@ -1,16 +1,16 @@
 <?php
 
- 
+
 
 namespace App;
 
- 
+
 
 use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
- 
+
 
 class Siswa extends Authenticatable
 
@@ -18,7 +18,7 @@ class Siswa extends Authenticatable
 
     use Notifiable;
 
- 
+
 
     /**
 
@@ -36,7 +36,7 @@ class Siswa extends Authenticatable
 
     ];
 
- 
+
 
     /**
 
@@ -53,15 +53,16 @@ class Siswa extends Authenticatable
         'password', 'remember_token',
 
     ];
- 
+
      public function mapel()
      {
-         return $this->belongsToMany('App\Mapel');
+         return $this->belongsToMany('App\Mapel','mapel_id')
+         ->withPivot(['nama_mapel']);
      }
 
-    // public function guru()
-    // {
-    //     return $this->belongsTo('App\Guru','foreign_key');
-    // }
+    public function guru()
+    {
+        return $this->belongsToMany('App\Guru','guru_siswa');
+    }
 
 }

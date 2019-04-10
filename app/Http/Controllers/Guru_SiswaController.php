@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guru;
+use App\Siswa;
 
-class GuruController extends Controller
+
+class Guru_SiswaController extends Controller
 {
-    // public function __construct()
-    // {
-        // $this->middleware('auth');
-    // }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +16,10 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $guru = Guru::all();
-        return view('guru.index', compact('guru'));
+        $guru = Guru ::all();
+        $siswa = Siswa ::all();
+        return view('guru_siswa.index', compact('guru'));
+        return view('guru_siswa.index', compact('siswa'));
     }
 
     /**
@@ -29,7 +29,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('guru.create');
+        return view('guru_siswa.create');
     }
 
     /**
@@ -41,20 +41,19 @@ class GuruController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nama_guru' => 'required',
-            'nip' => 'required|integer',
-            'password' => 'required'
+            'guru_id' => 'required',
+            'siswa_id' => 'required'
         ]);
-
         $guru = new Guru([
-            'nama_guru' => $request->get('nama_guru'),
-            'nip' => $request->get('nip'),
-            'password' => $request->get('password'),
-            'mapels_id' => $request->get('mapels_id')
-        ]);
+            'guru_id'=> $request->get('guru_id'),
+            ]);
+        $siswa = new Siswa([
+            'siswa_id'=> $request->get('siswa_id')
+            ]);
         $guru->save();
+        $siswa->siswa();
 
-        return redirect('/guru')->with('success', 'New Teacher Added');
+        return redirect('/guru_siswa')->with('success', 'New Pivots Added');
     }
 
     /**
@@ -65,8 +64,7 @@ class GuruController extends Controller
      */
     public function show($id)
     {
-        //$guru = guru::find($id);
-        //return view ('guru.show')->with ('guru',$guru);
+        //
     }
 
     /**
@@ -77,8 +75,10 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        $guru = guru::find($id);
-        return view ('guru.edit')->with('guru',$guru);
+        $guru = Guru::find($id);
+        $siswa = Siswa::find($id);
+        return view ('guru_siswa.edit')->with('guru_id',$guru);
+        return view ('guru_siswa.edit')->with('siswa_id',$siswa);
     }
 
     /**
@@ -91,19 +91,17 @@ class GuruController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'nama_guru' => 'required',
-            'nip' => 'required|integer',
-            'password' => 'required',
-            'mapels_id' => 'required'
+            'guru_id' => 'required',
+            'siswa_id' => 'required'
         ]);
         $guru = Guru::find($id);
-        $guru->nama_guru = $request->input('nama_guru');
-        $guru->nip = $request->input('nip');
-        $guru->password = $request->input('password');
-        $guru->mapels_id = $request->input('mapels_id');
+        $siswa = Siswa::find($id);
+        $guru->guru_id = $request->get('guru_id');
+        $siswa->siswa_id = $request->get('siswa_id');
         $guru->save();
+        $siswa->save();
 
-        return redirect('/guru')->with('success', 'New  Added');
+        return redirect('/guru_siswa')->with('success', 'New Pivots Updated');
     }
 
     /**
@@ -114,8 +112,10 @@ class GuruController extends Controller
      */
     public function destroy($id)
     {
-        $guru = Guru::find($id);
+        $guru= Guru::find($id);
+        $siswa= Siswa::find($id);
         $guru->delete();
-        return redirect('/guru')->with('success', 'Teacher Removed');
+        $siswa->delete();
+        return redirect('/guru_siswa')->with('success', 'Pivots Removed');
     }
 }

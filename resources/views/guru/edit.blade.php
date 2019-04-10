@@ -15,6 +15,10 @@
             {{Form::label('password', 'Password')}}
             {{Form::text('password',$guru->password, ['class' => 'form-control', 'placeholder'=>'Password'])}}
     </div>
+    <div class="form-group">
+        {{Form::label('mapels_id', 'Mapel')}}
+        {{Form::text('mapels_id',$guru->mapels_id, ['class' => 'form-control', 'placeholder'=>'Mapel'])}}
+    </div>
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
