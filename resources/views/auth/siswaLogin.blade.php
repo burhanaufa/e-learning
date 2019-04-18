@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
- 
+
 
 @section('content')
 
@@ -14,27 +14,27 @@
 
                 <div class="card-header">Siswa {{ __('Login') }}</div>
 
- 
+
 
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('siswa-login') }}">
+                    <form method="POST" action="{{ route('auth.siswaLogin') }}">
 
-                        @csrf 
+                        @csrf
 
- 
+
 
                         <div class="form-group row">
 
                             <label for="nis" class="col-sm-4 col-form-label text-md-right">{{ __('Nomor Induk') }}</label>
 
- 
+
 
                             <div class="col-md-6">
 
-                                <input id="nis" type="nis" class="form-control{{ $errors->has('nis') ? ' is-invalid' : '' }}" name="nis" value="{{ old('nis') }}" required autofocus>
+                                <input id="nis" type="integer" class="form-control{{ $errors->has('nis') ? ' is-invalid' : '' }}" name="nis" value="{{ old('nis') }}" required autofocus>
 
- 
+
 
                                 @if ($errors->has('nis'))
 
@@ -50,19 +50,19 @@
 
                         </div>
 
- 
+
 
                         <div class="form-group row">
 
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
- 
+
 
                             <div class="col-md-6">
 
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
- 
+
 
                                 @if ($errors->has('password'))
 
@@ -78,9 +78,9 @@
 
                         </div>
 
- 
 
-                        <div class="form-group row">
+
+                        {{-- <div class="form-group row">
 
                             <div class="col-md-6 offset-md-4">
 
@@ -96,9 +96,9 @@
 
                             </div>
 
-                        </div>
+                        </div> --}}
 
- 
+
 
                         <div class="form-group row mb-0">
 
@@ -110,11 +110,11 @@
 
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{-- <a class="btn btn-link" href="{{ route('password.request') }}">
 
                                     {{ __('Forgot Your Password?') }}
 
-                                </a>
+                                </a> --}}
 
                             </div>
 

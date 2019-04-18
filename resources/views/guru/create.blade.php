@@ -16,8 +16,8 @@
             {{Form::text('password','', ['class' => 'form-control', 'placeholder'=>'Password'])}}
     </div>
     <div class="form-group">
-        {{Form::label('mapels_id', 'Mapel')}}
-        {{Form::text('mapels_id','', ['class' => 'form-control', 'placeholder'=>'Mapel'])}}
+        {!!Form::label('Select Course') !!}
+        {!!Form::select('mapel[]',$mapel,null, ['single' => 'single', 'class' =>'form-control mapel'])!!}
     </div>
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

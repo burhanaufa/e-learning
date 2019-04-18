@@ -7,6 +7,7 @@ use App\Mapel;
 use App\Siswa;
 
 
+
 class Mapel_SiswaController extends Controller
 {
     /**
@@ -16,10 +17,8 @@ class Mapel_SiswaController extends Controller
      */
     public function index()
     {
-        $mapel = Mapel ::all();
-        $siswa = Siswa ::all();
-        return view('mapel_siswa.index', compact('mapel'));
-        return view('mapel_siswa.index', compact('siswa'));
+        $siswa = Siswa::all();
+        return view ('mapel_siswa.index', ['siswa'=> $siswa]);
     }
 
     /**
@@ -29,7 +28,9 @@ class Mapel_SiswaController extends Controller
      */
     public function create()
     {
-        return view('mapel_siswa.create');
+        $siswa = Siswa::value('nama_siswa', 'id');
+        $mapel = Mapel::value('nama_mapel', 'id');
+        return view('mapel_siswa.create',['siswa'=>$siswa, 'mapel'=>$mapel]);
     }
 
     /**
@@ -52,6 +53,7 @@ class Mapel_SiswaController extends Controller
             ]);
         $mapel->save();
         $siswa->siswa();
+        $siswa->mapel()->sync($request->mapel);
 
         return redirect('/mapel_siswa')->with('success', 'New Lecture Added');
     }

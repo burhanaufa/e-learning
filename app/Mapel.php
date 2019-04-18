@@ -11,15 +11,14 @@ class Mapel extends Model
     ];
     public function materi()
     {
-        return $this->hasMany('App\Materi','foreign_key');
+        return $this->hasMany(Materi::class, 'mapels_id');
     }
     public function guru()
     {
-        return $this->hasMany('App\Guru','foreign_key');
+        return $this->hasMany('App\Guru');
     }
     public function siswa()
     {
-        return $this->belongsToMany('App\Siswa','siswa_id')
-        ->withPivot(['nama_siswa']);
+        return $this->belongsToMany('App\Siswa');
     }
 }

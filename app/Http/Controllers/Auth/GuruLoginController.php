@@ -1,10 +1,10 @@
 <?php
 
- 
+
 
 namespace App\Http\Controllers\Auth;
 
- 
+
 
 use App\Http\Controllers\Controller;
 
@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 
- 
+
 
 class GuruLoginController extends Controller
 
@@ -38,15 +38,15 @@ class GuruLoginController extends Controller
 
     */
 
- 
+
 
     use AuthenticatesUsers;
 
- 
 
-    // protected $guard = 'guru';
 
- 
+     protected $guard = 'guru';
+
+
 
     /**
 
@@ -60,7 +60,7 @@ class GuruLoginController extends Controller
 
     protected $redirectTo = '/home';
 
- 
+
 
     /**
 
@@ -76,11 +76,11 @@ class GuruLoginController extends Controller
 
     {
 
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:guru')->except('logout');
 
     }
 
- 
+
 
     public function showLoginForm()
 
@@ -90,7 +90,7 @@ class GuruLoginController extends Controller
 
     }
 
-  
+
 
     public function login(Request $request)
 
@@ -102,7 +102,7 @@ class GuruLoginController extends Controller
 
         }
 
- 
+
 
         return back()->withErrors(['nip' => 'Nomor Induk or password are wrong.']);
 

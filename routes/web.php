@@ -18,6 +18,16 @@ Route::get('/', 'SignaturesController@index')->name('home');
 Route::get('sign', 'SignaturesController@create')->name('sign');
 
 Auth::routes();
+Route::get('admin_dash', 'AdminController@index')->middleware('admin');
+
+// protect group routes with authentication
+Route::get('admin_area', ['middleware' => 'admin', function () {
+
+    Route::get('test', function () {
+        return 'Welcome Admin!';
+    });
+
+}]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/siswa', 'SiswaController');
@@ -29,9 +39,9 @@ Route::resource('/jawaban','JawabanController');
 Route::resource('/mapel_siswa','Mapel_SiswaController');
 Route::resource('/guru_siswa','Guru_SiswaController');
 Route::get('/admin','AdminController@index');
-Route::get('siswa-login', 'Auth\SiswaLoginController@showLoginForm');
+Route::get('siswa-login', 'Auth\SiswaLoginController@showLoginForm')->name('auth.siswaLogin');
 
-Route::post('siswa-login', ['as'=>'siswa-login','uses'=>'Auth\SiswaLoginController@login']);
+Route::post('siswa-login', ['as'=>'siswa-login','uses'=>'Auth\SiswaLoginController@login'])->name('auth.siswaLogin');
 Route::get('guru-login', 'Auth\GuruLoginController@showLoginForm');
 
 Route::post('guru-login', ['as'=>'guru-login','uses'=>'Auth\GuruLoginController@login']);

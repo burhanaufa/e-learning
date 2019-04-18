@@ -1,10 +1,10 @@
 <?php
 
- 
+
 
 namespace App\Http\Controllers\Auth;
 
- 
+use App\Siswa;
 
 use App\Http\Controllers\Controller;
 
@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 
- 
+
 
 class SiswaLoginController extends Controller
 
@@ -38,15 +38,16 @@ class SiswaLoginController extends Controller
 
     */
 
- 
+
 
     use AuthenticatesUsers;
 
- 
+
 
     protected $guard = 'siswa';
+    protected $redirectTo = '/home';
 
- 
+
 
     /**
 
@@ -58,9 +59,7 @@ class SiswaLoginController extends Controller
 
      */
 
-    protected $redirectTo = '/home';
 
- 
 
     /**
 
@@ -72,15 +71,16 @@ class SiswaLoginController extends Controller
 
      */
 
+
     public function __construct()
 
     {
 
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:siswa')->except('logout');
 
     }
 
- 
+
 
     public function showLoginForm()
 
@@ -90,22 +90,52 @@ class SiswaLoginController extends Controller
 
     }
 
- 
+    public function guard()
+    {
+        return auth()->guard('siswa');
+    }
+
+
 
     public function login(Request $request)
 
     {
+        $this->validate($request, [
+            'nis' => 'required|integer',
+            'password' => 'required|min:6'
+        ]);
 
         if (auth()->guard('siswa')->attempt(['nis' => $request->nis, 'password' => $request->password])) {
 
-            dd(auth()->guard('siswa')->user());
+            dd(auth()->guard('siswa')->guest());
 
         }
 
- 
 
-        return back()->withErrors(['nis' => 'Nomor Induk or password are wrong.']);
+
+        return redirect()->back()
+        ->withInput()
+        ->withErrors([
+            'login' => 'These credentials do not match our records.',]);
 
     }
+//     protected function credentials(Request $request)
+// {
+//     $nis = filter_var($request->input(‘nis’), FILTER_VALIDATE_USERNAME)
+//     ? ’nis’
+//     : ‘password’;
+
+//         $request->merge([
+//     $nis => $request->input(‘nis’)
+//     ]);
+
+//     return $request->only($nis, ‘password’);
+//     }
+
+//     public function nis()
+//     {
+//     return ‘nis’;
+//     }
+
 
 }

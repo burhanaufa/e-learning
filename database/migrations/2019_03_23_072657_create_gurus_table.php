@@ -13,7 +13,7 @@ class CreateGurusTable extends Migration
      */
     public function up()
     {
-        Schema::create('Gurus', function (Blueprint $table) {
+        Schema::create('gurus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_guru');
             $table->unsignedBigInteger('mapels_id')->nullable();
@@ -36,6 +36,6 @@ class CreateGurusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Gurus');
+        Schema::dropIfExists('gurus');
     }
 }

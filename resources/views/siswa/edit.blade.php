@@ -15,6 +15,10 @@
             {{Form::label('password', 'Password')}}
             {{Form::text('password',$siswa->pass, ['class' => 'form-control', 'placeholder'=>'Password'])}}
     </div>
+    <div class="form-group">
+            {!!Form::label('Select Course') !!}
+            {!!Form::select('mapel[]',$mapel, ['multiple' => 'multiple', 'class' =>'form-control mapel'])!!}
+        </div>
         {{Form::hidden('method','PUT')}}
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materi extends Model
 {
+    protected $guarded = [];
     protected $fillable= [
         'nama_materi','konten_materi'
     ];
     public function mapel()
     {
-        return $this->belongsTo('App\Mapel');
+        return $this->belongsTo(Mapel::class,'mapels_id');
     }
     public function pertanyaan()
     {

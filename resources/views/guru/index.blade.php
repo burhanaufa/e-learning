@@ -14,14 +14,19 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($guru as $guru)
-        <tr>
-            <td>{{$guru->id}}</td>
-            <td>{{$guru->nama_guru}}</td>
-            <td>{{$guru->nip}}</td>
-            <td>{{$guru->mapels_id}}</td>
-            <td><a href="{{ route('guru.edit',$guru->id)}}"class="btn btn-primary">Edit</a></td>
-            <td>
+        @if(count($guru) == 0)
+            <tr>
+                <td colspan="5" class="text-center">No Guru Found</td>
+            </tr>
+        @else
+            @foreach($guru as $guru)
+                <tr>
+                    <td>{!!$guru->id!!}</td>
+                    <td>{!!$guru->nama_guru!!}</td>
+                    <td>{!!$guru->nip!!}</td>
+                    <td>{!!$guru->mapel->nama_mapel!!}</td>
+                <td><a href="{{ route('guru.edit',$guru->id)}}"class="btn btn-primary">Edit</a></td>
+                <td>
                 <form action="{{ route('siswa.destroy',$guru->id)}}" method="post">
                     @csrf
                     @method('DELETE')
@@ -30,6 +35,7 @@
             </td>
         </tr>
         @endforeach
+        @endif
         <a href="{{ route('guru.create')}}"class="btn btn-primary">Add Teacher</a>
     </tbody>
 </table>

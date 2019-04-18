@@ -13,7 +13,7 @@ class CreateSiswasTable extends Migration
      */
     public function up()
     {
-        Schema::create('Siswas', function (Blueprint $table) {
+        Schema::create('siswas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_siswa');
             $table->integer('nis')->unique();
@@ -30,6 +30,6 @@ class CreateSiswasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Siswas');
+        Schema::dropIfExists('siswas');
     }
 }

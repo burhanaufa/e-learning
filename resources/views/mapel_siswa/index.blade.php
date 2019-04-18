@@ -12,10 +12,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($mapel as $mapel)
+        @foreach($mapel -> $siswa   )
         <tr>
             <td>{{$mapel->mapel_id}}</td>
-            @foreach($siswa as $siswa)
             <td>{{$siswa->siswa_id}}</td>
             <td><a href="{{ route('mapel_siswa.edit',$mapel->id, $siswa->id)}}"class="btn btn-primary">Edit</a></td>
             <td>

@@ -13,11 +13,16 @@
         </tr>
     </thead>
     <tbody>
+        @if(count($jawaban) == 0)
+            <tr>
+                <td colspan="5" class="text-center">No Jawaban Found</td>
+            </tr>
+        @else
         @foreach($jawaban as $jawaban)
         <tr>
             <td>{{$jawaban->id}}</td>
             <td>{{$jawaban->isi_jawaban}}</td>
-            <td>{{$jawaban->pertanyaans_id}}</td>
+            <td>{{$jawaban->pertanyaans}}</td>
             <td><a href="{{ route('jawaban.show',$jawaban->id)}}"class="btn btn-primary">Show</a></td>
             <td><a href="{{ route('jawaban.edit',$jawaban->id)}}"class="btn btn-primary">Edit</a></td>
             <td>
@@ -29,6 +34,7 @@
             </td>
         </tr>
         @endforeach
+        @endif
         <a href="{{ route('jawaban.create')}}"class="btn btn-primary">Add Answer</a>
     </tbody>
 </table>

@@ -12,10 +12,9 @@
                 {{Form::textarea('konten_materi','', ['class' => 'form-control', 'placeholder'=>'Konten Materi'])}}
         </div>
         <div class="form-group">
-            {{Form::label('mapels_id', 'Id Mapel')}}
-            {{Form::text('mapels_id','', ['class' => 'form-control', 'placeholder'=>'id Mapel'])}}
+            {{Form::label('mapels[]','Nama Mapel')}}
+            {{Form::text('mapels[]',null, ['single' => 'form-control', 'placeholder'=>'id Mapel'])}}
     </div>
-
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
 @endsection

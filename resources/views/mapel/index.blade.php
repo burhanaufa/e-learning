@@ -12,6 +12,11 @@
         </tr>
     </thead>
     <tbody>
+         @if(count($mapel) == 0)
+            <tr>
+                <td colspan="5" class="text-center">No Mata Pelajaran Found</td>
+            </tr>
+        @else
         @foreach($mapel as $mapel)
         <tr>
             <td>{{$mapel->id}}</td>
@@ -26,6 +31,7 @@
             </td>
         </tr>
         @endforeach
+        @endif
         <a href="{{ route('mapel.create')}}"class="btn btn-primary">Add Subject</a>
     </tbody>
 </table>

@@ -116,14 +116,14 @@ return [
         ],
         'siswas' => [
             'provider' => 'siswas',
-            'nis' => 'auth.nis.pass',
-            'table' => 'password_resets',
+            'nis' => 'auth.nis.password',
+            // 'table' => 'password_resets',
             'expire' => 60,
         ],
         'gurus' => [
             'provider' => 'gurus',
-            'nip' => 'auth.nip.pass',
-            'table' => 'password_resets',
+            'nip' => 'auth.nip.password',
+            // 'table' => 'password_resets',
             'expire' => 60,
         ]
     ],

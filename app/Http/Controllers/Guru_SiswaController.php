@@ -18,8 +18,7 @@ class Guru_SiswaController extends Controller
     {
         $guru = Guru ::all();
         $siswa = Siswa ::all();
-        return view('guru_siswa.index', compact('guru'));
-        return view('guru_siswa.index', compact('siswa'));
+        return view('guru_siswa.index', ['siswa' => $siswa , 'guru' => $guru]);
     }
 
     /**
@@ -29,7 +28,9 @@ class Guru_SiswaController extends Controller
      */
     public function create()
     {
-        return view('guru_siswa.create');
+        $guru = Guru::pluck('nama_guru', 'id');
+        $siswa = Siswa::pluck('nama_siswa','id');
+        return view('guru_siswa.create',['siswa' => $siswa , 'guru' => $guru]);
     }
 
     /**
@@ -40,18 +41,12 @@ class Guru_SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'guru_id' => 'required',
-            'siswa_id' => 'required'
-        ]);
-        $guru = new Guru([
-            'guru_id'=> $request->get('guru_id'),
-            ]);
-        $siswa = new Siswa([
-            'siswa_id'=> $request->get('siswa_id')
-            ]);
-        $guru->save();
-        $siswa->siswa();
+        $siswa = Siswa::find($request);
+        $guru = Guru::find($request);
+        $siswa->guru()->sync($request->guru);
+        $guru->siswa()->sync($request->siswa);
+        $siswa->save();
+        $guru->guru();
 
         return redirect('/guru_siswa')->with('success', 'New Pivots Added');
     }
@@ -64,7 +59,11 @@ class Guru_SiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $guru = Guru::find($id);
+        $guru = Guru::pluck('nama_guru', 'id');
+        $siswa = Siswa::pluck('nama_siswa','id');
+        return view('guru_siswa.create',['siswa' => $siswa , 'guru' => $guru]);
     }
 
     /**
@@ -90,16 +89,13 @@ class Guru_SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'guru_id' => 'required',
-            'siswa_id' => 'required'
-        ]);
-        $guru = Guru::find($id);
-        $siswa = Siswa::find($id);
-        $guru->guru_id = $request->get('guru_id');
-        $siswa->siswa_id = $request->get('siswa_id');
-        $guru->save();
+
+        $siswa = Siswa::find($request);
+        $guru = Guru::find($request);
+        $siswa->guru()->sync($request->guru);
+        $guru->siswa()->sync($request->siswa);
         $siswa->save();
+        $guru->guru();
 
         return redirect('/guru_siswa')->with('success', 'New Pivots Updated');
     }

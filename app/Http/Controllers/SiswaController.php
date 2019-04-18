@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Siswa;
+use App\Mapel;
+use App\Guru;
+
 
 class SiswaController extends Controller
 {
@@ -19,7 +22,7 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        return view('siswa.index', compact('siswa'));
+        return view('siswa.index', ['siswa' => $siswa]);
     }
 
     /**
@@ -29,7 +32,9 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        $mapel = Mapel::pluck('nama_mapel', 'id');
+        $guru = Guru::pluck('nama_guru','id');
+        return view('siswa.create',['mapel'=> $mapel,'guru',$guru]);
     }
 
     /**
@@ -46,12 +51,13 @@ class SiswaController extends Controller
             'password' => 'required'
         ]);
 
-        $siswa = new Siswa([
-            'nama_siswa' => $request->get('nama_siswa'),
-            'nis' => $request->get('nis'),
-            'password' => $request->get('password')
-        ]);
+        $siswa = new Siswa;
+        $siswa->nama_siswa = $request->nama_siswa;
+        $siswa->nis = $request->nis;
+        $siswa->password = $request->password;
         $siswa->save();
+        $siswa->mapel()->sync($request->mapel);
+        $siswa->guru()->sync($request->guru);
         return redirect('/siswa')->with('success', 'New Student Added');
     }
 
@@ -75,8 +81,10 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $siswa = siswa::find($id);
-        return view('siswa.edit')->with('siswa',$siswa);
+        $siswa = Siswa::find($id);
+        $mapel = Mapel::pluck('nama_mapel', 'id');
+        $guru = Guru::pluck('nama_guru','id');
+        return view('siswa.edit',['siswa'=> $siswa,'mapel' => $mapel,'guru'=>$guru]);
     }
 
     /**
@@ -99,7 +107,8 @@ class SiswaController extends Controller
           $siswa->nis = $request->get('nis');
           $siswa->password = $request->get('password');
           $siswa->save();
-
+          $siswa->mapel()->sync($request->mapel);
+          $siswa->guru()->sync($request->guru);
         return redirect('siswa')->with('success', 'New Student Updated');
     }
 

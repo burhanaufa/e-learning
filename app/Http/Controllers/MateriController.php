@@ -24,7 +24,7 @@ class MateriController extends Controller
     public function index()
     {
         $materi = Materi::all();
-        return view('materi.index', compact('materi'));
+        return view('materi.index', ['materi' => $materi]);
     }
 
     /**
@@ -47,16 +47,15 @@ class MateriController extends Controller
     {
         $this->validate($request,[
             'nama_materi' => 'required',
-            'konten_materi' => 'required'
+            'konten_materi' => 'required',
+            'mapels' => 'required'
         ]);
 
-        $materi = new Materi([
-            'nama_materi'=> $request->get('nama_materi'),
-            'konten_materi'=> $request->get('konten_materi'),
-            'mapels_id' => $request->get('mapels_id')
-        ]);
+        $materi = new Materi;
+        $materi->nama_materi = $request->input('nama_materi');
+        $materi->konten_materi = $request->input('konten_materi');
+        $materi->mapels = $request->input('mapels');
         $materi->save();
-
 
         return redirect('/materi')->with('success', 'New Lecture Added');
     }
@@ -82,7 +81,7 @@ class MateriController extends Controller
     public function edit($id)
     {
         $materi = Materi::find($id);
-        return view ('materi.edit')->with('materi',$materi);
+        return view ('materi.edit','materi',$materi);
     }
 
     /**
@@ -101,12 +100,12 @@ class MateriController extends Controller
         ]);
 
         $materi = Materi::find($id);
-        $materi->nama_materi = $request->get('nama_materi');
-        $materi->konten_materi = $request->get('konten_materi');
-        $materi->mapels_id = $request->get('mapels_id');
+        $materi->nama_materi = $request->input('nama_materi');
+        $materi->konten_materi = $request->input('konten_materi');
+        $materi->mapels = $request->input('mapels');
         $materi->save();
 
-
+        // $materi->mapel()->assosiate($request->mapel);
         return redirect('/materi')->with('success', 'New Lecture Updated');
     }
 

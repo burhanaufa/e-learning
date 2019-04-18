@@ -12,10 +12,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($guru as $guru and $siswa as $siswa)
+         {{-- @if(count($guru_siswa) == 0)
+            <tr>
+                <td colspan="5" class="text-center">No Data Found</td>
+            </tr>
+        @else --}}
         <tr>
-            <td>{{$guru->guru_id}}</td>
-            <td>{{$siswa->siswa_id}}</td>
+            <td>
+                @foreach($guru->siswa as $siswa)
+                    <span> {!! $$siswa->nama_siswa !!}</span>
+            </td>
+             <td>
+                @foreach($siswa->guru as $guru)
+                    <span> {!! $mapel->nama_guru !!}</span>
+                @endforeach
+            </td>
             <td><a href="{{ route('guru_siswa.edit',$guru->id, $siswa->id)}}"class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('guru_siswa.destroy',$guru->id, $siswa->id)}}" method="post">
@@ -26,6 +37,7 @@
             </td>
         </tr>
         @endforeach
+        {{-- @endif --}}
         <a href="{{ route('guru_siswa.create')}}"class="btn btn-primary">Add Pivot</a>
     </tbody>
 </table>

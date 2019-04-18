@@ -18,6 +18,8 @@ class Siswa extends Authenticatable
 
     use Notifiable;
 
+    // protected $guard ='siswa';
+
 
 
     /**
@@ -56,13 +58,12 @@ class Siswa extends Authenticatable
 
      public function mapel()
      {
-         return $this->belongsToMany('App\Mapel','mapel_id')
-         ->withPivot(['nama_mapel']);
+         return $this->belongsToMany('App\Mapel');
      }
 
     public function guru()
     {
-        return $this->belongsToMany('App\Guru','guru_siswa');
+        return $this->belongsToMany('App\Guru','guru_id','siswa_id');
     }
 
 }
