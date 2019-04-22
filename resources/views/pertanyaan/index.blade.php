@@ -22,7 +22,7 @@
         <tr>
             <td>{{$pertanyaan->id}}</td>
             <td>{{$pertanyaan->isi_pertanyaan}}</td>
-            <td>{{$pertanyaan->materis_id =$nama_materi}}</td>
+            <td>{{$pertanyaan->materis_id }}</td>
             <td><a href="{{ route('pertanyaan.show',$pertanyaan->id)}}"class="btn btn-primary">Show</a></td>
             <td><a href="{{ route('pertanyaan.edit',$pertanyaan->id)}}"class="btn btn-primary">Edit</a></td>
             <td>

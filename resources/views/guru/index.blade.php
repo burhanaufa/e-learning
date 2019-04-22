@@ -24,7 +24,7 @@
                     <td>{!!$guru->id!!}</td>
                     <td>{!!$guru->nama_guru!!}</td>
                     <td>{!!$guru->nip!!}</td>
-                    <td>{!!$guru->mapel->nama_mapel!!}</td>
+                    <td>{!!$guru->mapels_id!!}</td>
                 <td><a href="{{ route('guru.edit',$guru->id)}}"class="btn btn-primary">Edit</a></td>
                 <td>
                 <form action="{{ route('siswa.destroy',$guru->id)}}" method="post">

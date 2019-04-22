@@ -1,6 +1,6 @@
 @extends('admin.index')
 
-@section('main-content')
+@section('content')
     <h1>Edit Guru</h1>
     {{Form::model($guru, array('route'=> array('guru.update',$guru->id),'method'=>'PATCH'))}}
         <div class="form-group">
@@ -16,9 +16,9 @@
             {{Form::text('password',$guru->password, ['class' => 'form-control', 'placeholder'=>'Password'])}}
     </div>
     <div class="form-group">
-            {!!Form::label('Select Course') !!}
-            {!!Form::select('mapel[]',$mapel, null, ['multiple' => 'multiple', 'class' =>'form-control mapel'])!!}
-        </div>
+        {{Form::label('Mapels_id', 'Id Mapel')}}
+        {{Form::text('mapels_id','', ['class' => 'form-control', 'placeholder'=>'Id Mapel'])}}
+</div>
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

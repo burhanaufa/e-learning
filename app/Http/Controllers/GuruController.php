@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guru;
-use App\Mapel;
+
 
 class GuruController extends Controller
 {
@@ -30,8 +30,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        $mapel = Mapel::pluck('nama_mapel','id');
-        return view('guru.create',['mapel' => $mapel]);
+        return view('guru.create');
     }
 
     /**
@@ -52,10 +51,9 @@ class GuruController extends Controller
         $guru->nama_guru = $request->nama_guru;
         $guru->nip = $request->nip;
         $guru->password = $request->password;
+        $guru->mapels_id = $request->mapels_id;
 
-
-        $guru->save();
-        $guru->mapel()->associate($request->mapel);
+        $guru->save();;
 
         return redirect('/guru')->with('success', 'New Teacher Added');
     }
@@ -81,9 +79,7 @@ class GuruController extends Controller
     public function edit($id)
     {
         $guru = guru::find($id);
-        $mapel = Mapel::pluck('nama_mapel'.'id');
-
-        return view ('guru.edit',['guru' => $guru,'mapel' => $mapel]);
+        return view ('guru.edit')->with('guru',$guru);
     }
 
     /**
@@ -105,9 +101,9 @@ class GuruController extends Controller
         $guru->nama_guru = $request->input('nama_guru');
         $guru->nip = $request->input('nip');
         $guru->password = $request->input('password');
+        $guru->mapels_id = $request->input('mapels_id');
         $guru->save();
 
-        $guru->mapel()->asssociate($request->mapel);
         return redirect('/guru')->with('success', 'New Teacher Added');
     }
 

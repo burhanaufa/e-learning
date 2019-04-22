@@ -12,13 +12,14 @@
             <td>Nama Siswa</td>
             <td>NIS</td>
             <td>Mapel</td>
+            <td>Guru</td>
             <td colspan="2">Action</td>
         </tr>
     </thead>
     <tbody>
         @if(count($siswa) == 0)
             <tr>
-                <td colspan="5" class="text-center">No Siswa Found</td>
+                <td colspan="6" class="text-center">No Siswa Found</td>
             </tr>
         @else
         @foreach($siswa as $siswa)
@@ -29,6 +30,11 @@
             <td>
                 @foreach($siswa->mapel as $mapel)
                     <span> {!! $mapel->nama_mapel !!}</span>
+                @endforeach
+            </td>
+            <td>
+                @foreach($siswa->guru as $guru)
+                    <span> {!! $guru->nama_guru !!}</span>
                 @endforeach
             </td>
             <td><a href="{{ route('siswa.edit',$siswa->id)}}"class="btn btn-primary">Edit</a></td>

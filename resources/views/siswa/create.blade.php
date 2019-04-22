@@ -19,6 +19,10 @@
         {!!Form::label('Select Course') !!}
         {!!Form::select('mapel[]',$mapel,null, ['multiple' => 'multiple', 'class' =>'form-control mapel'])!!}
     </div>
+    <div class="form-group">
+        {!!Form::label('Select Teacher') !!}
+        {!!Form::select('guru[]',$guru,null, ['multiple' => 'multiple', 'class' =>'form-control guru'])!!}
+    </div>
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
 @endsection

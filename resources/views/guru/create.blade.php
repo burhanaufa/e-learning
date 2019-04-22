@@ -17,7 +17,7 @@
     </div>
     <div class="form-group">
         {!!Form::label('Select Course') !!}
-        {!!Form::select('mapel[]',$mapel,null, ['single' => 'single', 'class' =>'form-control mapel'])!!}
+        {!!Form::text('mapels_id','', ['single' => 'single', 'class' =>'form-control mapel'])!!}
     </div>
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

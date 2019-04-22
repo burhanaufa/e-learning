@@ -34,7 +34,7 @@ class SiswaController extends Controller
     {
         $mapel = Mapel::pluck('nama_mapel', 'id');
         $guru = Guru::pluck('nama_guru','id');
-        return view('siswa.create',['mapel'=> $mapel,'guru',$guru]);
+        return view('siswa.create',['mapel'=> $mapel,'guru' => $guru]);
     }
 
     /**
