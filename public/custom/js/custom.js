@@ -1,3 +1,7 @@
+
 $(document).ready(function() {
-    $('.mapels').select2();
+    $('.mapel').select2();
+
 });
+
+console.log(window)
