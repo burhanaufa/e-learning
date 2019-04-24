@@ -17,8 +17,9 @@ class CreateGurusTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama_guru');
             $table->unsignedBigInteger('mapels_id')->nullable();
-            $table->integer('nip')->unique();
+            $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('is_guru')->default(false);
             $table->rememberToken();
             $table->timestamps();
 

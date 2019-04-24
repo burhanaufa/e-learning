@@ -49576,6 +49576,13 @@ Vue.component('paginate', __webpack_require__(/*! vuejs-paginate */ "./node_modu
 var app = new Vue({
   el: '#app'
 });
+$(document).ready(function () {
+  $('.mapel').select2();
+});
+$(document).ready(function () {
+  $('.guru').select2();
+});
+console.log(window);
 
 /***/ }),
 
@@ -49594,8 +49601,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default;
-  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default; // window.$ = window.jQuery = require('jquery');
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 
@@ -49864,8 +49870,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/dancaprima/Documents/Project/burhan-quiz/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/dancaprima/Documents/Project/burhan-quiz/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\e-learning\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\e-learning\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

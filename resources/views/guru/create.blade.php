@@ -8,15 +8,15 @@
             {{Form::text('nama_guru','', ['class' => 'form-control', 'placeholder'=>'Name'])}}
         </div>
         <div class="form-group">
-                {{Form::label('nip', 'Nip')}}
-                {{Form::text('nip','', ['class' => 'form-control', 'placeholder'=>'Nip'])}}
+                {{Form::label('email', 'Email')}}
+                {{Form::text('email','', ['class' => 'form-control', 'placeholder'=>'Email'])}}
         </div>
         <div class="form-group">
             {{Form::label('password', 'Password')}}
             {{Form::text('password','', ['class' => 'form-control', 'placeholder'=>'Password'])}}
     </div>
     <div class="form-group">
-        {!!Form::label('Select Course') !!}
+        {!!Form::label('mapels_id','Select Course') !!}
         {!!Form::text('mapels_id','', ['single' => 'single', 'class' =>'form-control mapel'])!!}
     </div>
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}

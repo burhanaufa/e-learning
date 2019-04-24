@@ -12,8 +12,8 @@
                 {{Form::textarea('konten_materi','', ['class' => 'form-control', 'placeholder'=>'Konten Materi'])}}
         </div>
         <div class="form-group">
-            {{Form::label('mapels[]','Nama Mapel')}}
-            {{Form::text('mapels[]',null, ['single' => 'form-control', 'placeholder'=>'id Mapel'])}}
+            {{Form::label('mapels_id','Select Id Course')}}
+            {{Form::text('mapels_id','', ['single' => 'single', 'class' =>'form-control mapel'])}}
     </div>
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

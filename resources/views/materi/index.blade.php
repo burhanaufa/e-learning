@@ -24,7 +24,7 @@
             <td>{{$materi->id}}</td>
             <td>{{$materi->nama_materi}}</td>
             <td>{{$materi->konten_materi}}</td>
-            <td>{{$materi->mapels}}</td>
+            <td>{{$materi->mapels_id}}</td>
             {{-- <td>
                 @foreach($materi->mapels as $mapel)
                     <span class="label label-info">{!! $mapels->nama_mapel !!}</span>

@@ -16,8 +16,9 @@ class CreateSiswasTable extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_siswa');
-            $table->integer('nis')->unique();
+            $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('is_siswa')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

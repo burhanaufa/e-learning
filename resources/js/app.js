@@ -33,3 +33,14 @@ Vue.component('paginate', require('vuejs-paginate'));
 const app = new Vue({
     el: '#app'
 });
+
+$(document).ready(function() {
+    $('.mapel').select2();
+
+});
+$(document).ready(function() {
+    $('.guru').select2();
+
+});
+
+console.log(window)

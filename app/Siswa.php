@@ -31,10 +31,11 @@ class Siswa extends Authenticatable
      * @var array
 
      */
+    protected $guard = 'siswa';
 
     protected $fillable = [
 
-        'nama_siswa', 'nis', 'password',
+        'nama_siswa', 'email', 'password',
 
     ];
 
@@ -63,7 +64,7 @@ class Siswa extends Authenticatable
 
     public function guru()
     {
-        return $this->belongsToMany('App\Guru','guru_id','siswa_id');
+        return $this->belongsToMany('App\Guru');
     }
 
 }

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Siswa;
+use App\Guru;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -38,6 +41,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:siswa');
+        $this->middleware('guest:guru');
     }
 
     /**
@@ -68,5 +73,34 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+    public function showSiswaRegisterForm()
+    {
+        return view('auth.register', ['url' => 'siswa']);
+    }
+
+    public function showGuruRegisterForm()
+    {
+        return view('auth.register', ['url' => 'guru']);
+    }
+    protected function createSiswa(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $siswa = Siswa::create([
+            'nama_siswa' => $request['nama_siswa'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/siswa');
+    }
+    protected function createGuru(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $guru = Guru::create([
+            'nama_guru' => $request['nama_guru'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/guru');
     }
 }

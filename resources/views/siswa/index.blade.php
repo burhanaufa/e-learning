@@ -10,7 +10,7 @@
         <tr>
             <td>ID</td>
             <td>Nama Siswa</td>
-            <td>NIS</td>
+            <td>Email</td>
             <td>Mapel</td>
             <td>Guru</td>
             <td colspan="2">Action</td>
@@ -26,7 +26,7 @@
         <tr>
             <td>{{$siswa->id}}</td>
             <td>{{$siswa->nama_siswa}}</td>
-            <td>{{$siswa->nis}}</td>
+            <td>{{$siswa->email}}</td>
             <td>
                 @foreach($siswa->mapel as $mapel)
                     <span> {!! $mapel->nama_mapel !!}</span>

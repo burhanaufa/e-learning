@@ -30,10 +30,11 @@ class Guru extends Authenticatable
      * @var array
 
      */
+    protected $guard ='guru';
 
     protected $fillable = [
 
-        'nama_guru', 'nip', 'password',
+        'nama_guru', 'email', 'password',
 
     ];
 
@@ -62,6 +63,6 @@ class Guru extends Authenticatable
     }
       public function siswa()
      {
-          return $this->belongsToMany('App\Siswa','guru_id','siswa_id');
+          return $this->belongsToMany('App\Siswa');
     }
 }

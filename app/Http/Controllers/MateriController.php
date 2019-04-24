@@ -47,14 +47,13 @@ class MateriController extends Controller
     {
         $this->validate($request,[
             'nama_materi' => 'required',
-            'konten_materi' => 'required',
-            'mapels' => 'required'
+            'konten_materi' => 'required'
         ]);
 
         $materi = new Materi;
         $materi->nama_materi = $request->input('nama_materi');
         $materi->konten_materi = $request->input('konten_materi');
-        $materi->mapels = $request->input('mapels');
+        $materi->mapels_id = $request->input('mapels_id');
         $materi->save();
 
         return redirect('/materi')->with('success', 'New Lecture Added');
@@ -95,14 +94,13 @@ class MateriController extends Controller
     {
         $this->validate($request,[
             'nama_materi' => 'required',
-            'konten_materi' => 'required',
-            'mapels_id' => 'required'
+            'konten_materi' => 'required'
         ]);
 
         $materi = Materi::find($id);
         $materi->nama_materi = $request->input('nama_materi');
         $materi->konten_materi = $request->input('konten_materi');
-        $materi->mapels = $request->input('mapels');
+        $materi->mapels_id = $request->input('mapels_id');
         $materi->save();
 
         // $materi->mapel()->assosiate($request->mapel);
