@@ -14,4 +14,8 @@
         {{Form::hidden('method','PUT')}}
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'isi_jawaban' );
+</script>
 @endsection

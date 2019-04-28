@@ -18,15 +18,15 @@
                 <td colspan="5" class="text-center">No Pertanyaan Found</td>
             </tr>
         @else
-        @foreach($pertanyaan as $pertanyaan)
+        @foreach($pertanyaan as $per)
         <tr>
-            <td>{{$pertanyaan->id}}</td>
-            <td>{{$pertanyaan->isi_pertanyaan}}</td>
-            <td>{{$pertanyaan->materis_id }}</td>
-            <td><a href="{{ route('pertanyaan.show',$pertanyaan->id)}}"class="btn btn-primary">Show</a></td>
-            <td><a href="{{ route('pertanyaan.edit',$pertanyaan->id)}}"class="btn btn-primary">Edit</a></td>
+            <td>{{$per->id}}</td>
+            <td>{!!$per->isi_pertanyaan!!}</td>
+            <td>{{$per->materis_id }}</td>
+            <td><a href="{{ route('pertanyaan.show',$per->id)}}"class="btn btn-primary">Show</a></td>
+            <td><a href="{{ route('pertanyaan.edit',$per->id)}}"class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('pertanyaan.destroy',$pertanyaan->id)}}" method="post">
+                <form action="{{ route('pertanyaan.destroy',$per->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
@@ -38,5 +38,6 @@
         <a href="{{ route('pertanyaan.create')}}"class="btn btn-primary">Add Question</a>
     </tbody>
 </table>
+{!!$pertanyaan->links()!!}
 </div>
 @endsection

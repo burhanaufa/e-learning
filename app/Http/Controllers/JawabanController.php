@@ -18,7 +18,7 @@ class JawabanController extends Controller
      */
     public function index()
     {
-        $jawaban = Jawaban::all();
+        $jawaban = Jawaban::paginate(10);
         return view('jawaban.index', compact('jawaban'));
     }
 

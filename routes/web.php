@@ -31,8 +31,8 @@ Route::post('/register/siswa', 'Auth\RegisterController@createSiswa');
 Route::post('/register/guru', 'Auth\RegisterController@createGuru');
 
 Route::view('/home', 'home')->middleware('auth');
-Route::view('/student', 'siswa')->middleware('auth');
-Route::view('/teacher', 'guru')->middleware('auth');;
+Route::view('/siswa', 'siswa');
+Route::view('/guru', 'guru');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/siswa', 'SiswaController');
@@ -43,6 +43,11 @@ Route::resource('/pertanyaan', 'PertanyaanController');
 Route::resource('/jawaban', 'JawabanController');
 Route::resource('/mapel_siswa', 'Mapel_SiswaController');
 Route::resource('/guru_siswa', 'Guru_SiswaController');
+Route::get('/admin','AdminController@index');
 Route::get('/dashboard', 'MapelController@Dashboard')->name('dashboard');
 Route::get('/course/{id}', 'CourseController@index');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

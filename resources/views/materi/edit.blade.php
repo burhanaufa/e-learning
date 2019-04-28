@@ -13,9 +13,18 @@
         </div>
         <div class="form-group">
             {{Form::label('mapels_id', 'Id Mapel')}}
-            {{Form::text('mapels_id',$materi->mapels_id, ['single' => 'form-control', 'placeholder'=>'id Mapel'])}}
+            {{Form::text('mapels_id',$materi->mapels_id, ['class' => 'form-control', 'placeholder'=>'id Mapel'])}}
         </div>
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'konten_materi', {
+    filebrowserBrowseUrl: '/browser/browse.php',
+    filebrowserImageBrowseUrl: '/browser/browse.php?type=Images',
+    filebrowserUploadUrl: '/uploader/upload.php',
+    filebrowserImageUploadUrl: '/uploader/upload.php?type=Images'
+});
+    </script>
 @endsection

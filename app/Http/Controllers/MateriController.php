@@ -16,14 +16,9 @@ class MateriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function fisika()
-    {
-        $materi = Materi::all();
-        return view('courses.fisika', compact('materi'));
-    }
     public function index()
     {
-        $materi = Materi::all();
+        $materi = Materi::paginate(10);
         return view('materi.index', ['materi' => $materi]);
     }
 
@@ -98,12 +93,11 @@ class MateriController extends Controller
         ]);
 
         $materi = Materi::find($id);
-        $materi->nama_materi = $request->input('nama_materi');
-        $materi->konten_materi = $request->input('konten_materi');
-        $materi->mapels_id = $request->input('mapels_id');
+        $materi->nama_materi = $request->get('nama_materi');
+        $materi->konten_materi = $request->get('konten_materi');
+        $materi->mapels_id = $request->get('mapels_id');
         $materi->save();
 
-        // $materi->mapel()->assosiate($request->mapel);
         return redirect('/materi')->with('success', 'New Lecture Updated');
     }
 

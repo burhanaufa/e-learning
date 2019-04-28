@@ -11,7 +11,7 @@ class Mapel extends Model
     ];
     public function materi()
     {
-        return $this->hasMany(Materi::class, 'mapels_id');
+        return $this->hasMany('App\Materi');
     }
     public function guru()
     {

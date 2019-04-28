@@ -19,15 +19,15 @@
                 <td colspan="5" class="text-center">No Guru Found</td>
             </tr>
         @else
-            @foreach($guru as $guru)
+            @foreach($guru as $gu)
                 <tr>
-                    <td>{!!$guru->id!!}</td>
-                    <td>{!!$guru->nama_guru!!}</td>
-                    <td>{!!$guru->email!!}</td>
-                    <td>{!!$guru->mapels_id!!}</td>
-                <td><a href="{{ route('guru.edit',$guru->id)}}"class="btn btn-primary">Edit</a></td>
+                    <td>{!!$gu->id!!}</td>
+                    <td>{!!$gu->nama_guru!!}</td>
+                    <td>{!!$gu->email!!}</td>
+                    <td>{!!$gu->mapels_id!!}</td>
+                <td><a href="{{ route('guru.edit',$gu->id)}}"class="btn btn-primary">Edit</a></td>
                 <td>
-                <form action="{{ route('siswa.destroy',$guru->id)}}" method="post">
+                <form action="{{ route('siswa.destroy',$gu->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
@@ -39,5 +39,6 @@
         <a href="{{ route('guru.create')}}"class="btn btn-primary">Add Teacher</a>
     </tbody>
 </table>
+{!!$guru->links()!!}
 </div>
 @endsection

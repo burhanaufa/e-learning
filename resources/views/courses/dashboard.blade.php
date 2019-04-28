@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('main-content')
 <div class="container">
   <title>{{ config('app.name', 'Portal Pembelajaran SMA 1 Semarang') }}</title>
   <div>

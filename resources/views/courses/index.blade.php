@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
-@section('content')
+@section('main-content')
 <div class="container">
     <title>{{ config('app.name', 'Portal Pembelajaran SMA 1 Semarang') }}</title>
 <h1>Materi</h1>
   <br>
   @foreach($course as $course)
-  <h1>{{$course->nama_mapel}}</h1>
   <div class="card timbul5">
     <div class="exploration-image mt-3 pb-3 d-flex">
       <div class="image">

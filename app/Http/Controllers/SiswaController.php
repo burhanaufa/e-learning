@@ -21,8 +21,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = Siswa::all();
-        return view('siswa.index', ['siswa' => $siswa]);
+        $siswa = Siswa::paginate(10);
+        return view('siswa.index', compact('siswa'));
     }
 
     /**

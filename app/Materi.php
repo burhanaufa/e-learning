@@ -12,7 +12,7 @@ class Materi extends Model
     ];
     public function mapel()
     {
-        return $this->belongsTo(Mapel::class,'mapels_id');
+        return $this->belongsTo('App\Mapel');
     }
     public function pertanyaan()
     {

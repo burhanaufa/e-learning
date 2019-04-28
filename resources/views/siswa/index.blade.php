@@ -22,24 +22,24 @@
                 <td colspan="6" class="text-center">No Siswa Found</td>
             </tr>
         @else
-        @foreach($siswa as $siswa)
+        @foreach($siswa as $sis)
         <tr>
-            <td>{{$siswa->id}}</td>
-            <td>{{$siswa->nama_siswa}}</td>
-            <td>{{$siswa->email}}</td>
+            <td>{{$sis->id}}</td>
+            <td>{{$sis->nama_siswa}}</td>
+            <td>{{$sis->email}}</td>
             <td>
-                @foreach($siswa->mapel as $mapel)
+                @foreach($sis->mapel as $mapel)
                     <span> {!! $mapel->nama_mapel !!}</span>
                 @endforeach
             </td>
             <td>
-                @foreach($siswa->guru as $guru)
+                @foreach($sis->guru as $guru)
                     <span> {!! $guru->nama_guru !!}</span>
                 @endforeach
             </td>
-            <td><a href="{{ route('siswa.edit',$siswa->id)}}"class="btn btn-primary">Edit</a></td>
+            <td><a href="{{ route('siswa.edit',$sis->id)}}"class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('siswa.destroy',$siswa->id)}}" method="post">
+                <form action="{{ route('siswa.destroy',$sis->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
@@ -50,6 +50,7 @@
         @endif
     </tbody>
 </table>
+{!!$siswa->links()!!}
 </div>
 </div>
 @endsection
