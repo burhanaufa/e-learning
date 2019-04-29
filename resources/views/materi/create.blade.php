@@ -19,11 +19,11 @@
     {!! Form::close() !!}
     <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 <script>
-    CKEDITOR.replace( 'konten_materi', {
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    CKEDITOR.replace( 'konten_materi',{
+    filebrowserImageBrowseUrl: '/laravel-filemanager',
+    filebrowserImageUploadUrl: '/laravel-filemanager',
+    filebrowserBrowseUrl: '/laravel-filemanager',
+    filebrowserUploadUrl: '/laravel-filemanager'
 });
 </script>
 @endsection

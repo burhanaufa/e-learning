@@ -16,6 +16,11 @@
     {!! Form::close() !!}
     <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 <script>
-    CKEDITOR.replace( 'isi_jawaban' );
+    CKEDITOR.replace( 'isi_jawaban',{
+    filebrowserImageBrowseUrl: '/laravel-filemanager',
+    filebrowserImageUploadUrl: '/laravel-filemanager',
+    filebrowserBrowseUrl: '/laravel-filemanager',
+    filebrowserUploadUrl: '/laravel-filemanager'
+    });
 </script>
 @endsection

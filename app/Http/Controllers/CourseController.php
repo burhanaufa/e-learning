@@ -19,7 +19,7 @@ class CourseController extends Controller
    */
   public function index($id)
   {
-    $materi = Materi::where('mapels_id', $id)->get();;
+    $materi = Materi::where('mapels_id', $id)->paginate(10);
     return view('courses.index', ['course' => $materi]);
   }
 }

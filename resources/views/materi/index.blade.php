@@ -8,7 +8,6 @@
         <tr>
             <td>ID</td>
             <td>Nama Materi</td>
-            <td>Konten Materi</td>
             <td>Mapel</>
             <td colspan="2">Action</td>
         </tr>
